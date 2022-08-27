@@ -31,8 +31,10 @@ app.use(express.urlencoded({ extended: false }));
 //use front end files
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(require('./controllers'));
+//use routes
+app.use(require('./controllers'));
 
+//turn on and connect to server
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening on PORT 3001'));
 });
