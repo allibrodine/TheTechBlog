@@ -1,0 +1,12 @@
+<article class="post">
+    <div class="title">
+        <p>{{title}}</p>
+        <span>{{post_text}}</span>
+    </div>
+    <div class="meta">
+                                      <!--helper for formatting date-->  
+        Posted by {{user.username}} on {{format_date createdAt}}
+        |                                          <!--helper to pluralize words-->     
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "Comment" comments.length}}</a>
+    </div>
+</article>
