@@ -4,10 +4,10 @@
         <article class="post">
             <div class="title">
                 <p>{{post.title}}</p>
-                <span>{{post_text}}</span>
+                <span>{{post.post_text}}</span>
             </div>
             <div class="meta">
-                Posted by {{post.user.username}} on {{post.created_at}}
+                Posted by {{post.user.username}} on {{post.createdAt}}
                 |
                 <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
             </div>

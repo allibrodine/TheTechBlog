@@ -13,10 +13,14 @@
         <nav>
             <a href="/">Home</a>
             <a href="/">Dashboard</a>
-            <a href="/login">Log In</a>
+            <!--only show logout link to logged in users-->
+            {{#if loggedIn}}
             <div id="logout">
                 <a href="/">Log Out</a>
             </div>
+            {{else}}
+            <a href="/login">Log In</a>
+            {{/if}}
         </nav>
         <div id="heading">
             <h1>The Tech Blog</h1>
@@ -30,8 +34,10 @@
     <footer>
         Thanks for visiting!
     </footer>
-
+    <!--only needed if logged in-->
+    {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
+    {{/if}}
 
 </body>
 
