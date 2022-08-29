@@ -1,0 +1,36 @@
+<!--section to create a new post-->
+<section>
+    <h2>Create New Blog Post</h2>
+
+    <form class="new-post">
+        <div>
+            <input type="text" id="post-title" name="post-title" placeholder="Title" />
+        </div>
+        <div>
+            <textarea name="post-text" placeholder="Content"></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Post</button>
+    </form>
+
+</section>
+
+<!--displays user's existing posts, if any-->
+{{#if posts.length}}
+<section>
+    <h2>Your Posts</h2>
+    <ol>
+        {{#each posts as |post|}}
+        <li>
+            <!--partial for posts-->
+            {{> post-info post}}
+            <!--option to edit existing post-->
+            <a href="/dashboard/edit/{{post.id}}" class="edit-btn">Edit Post</a>
+        </li>
+        {{/each}}
+    </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-post.js"></script>
+<script src="/javascript/edit.post"></script>

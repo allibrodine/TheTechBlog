@@ -1,0 +1,26 @@
+<!--template to edit post-->
+<article>
+    <a href="/dashboard"> &larr; Back to Dashboard</a>
+    <h2>Edit Post</h2>
+    
+    <form class="edit-post">
+        <div>
+            <input type="text" id="post-title" name="post-title" value="{{post.title}}" />
+        </div>
+        <div>
+            <textarea name="post-text" value="{{post.post_text}}"></textarea>
+        </div>
+
+        <button type="submit" class="save-btn">Save Post</button>
+        <button type="button" class="delete-btn">Delete Post</button>
+    </form>
+    
+</article>
+
+<!--display comments-->
+{{> comments post.comments }}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+
+
