@@ -1,5 +1,20 @@
-<!--partial to display posts-->
-{{> post-info post }}
+<article>
+    <div class="post">
+        <div class="title">
+            <p>
+                <a href="/post/{{post.id}}">{{post.title}}</a>  
+            </p>
+            <span>{{post.post_text}}</span>
+        </div>
+        <div class="meta">
+                                        <!--helper for formatting date-->  
+            Posted by {{post.user.username}} on {{format_date post.createdAt}}
+            |                             <!--helper to pluralize words-->  
+            {{post.comments.length}} {{format_plural "Comment" post.comments.length}}
+        </div>
+    </div>
+    
+</article>
 
 <!--only logged in users can see this-->
 {{#if loggedIn}}
@@ -14,6 +29,7 @@
 </form>
 {{/if}}
 
+<h3>Comments</h3>
 <!--partial for displaying comments-->
 {{> comments post.comments}}
 

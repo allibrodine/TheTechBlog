@@ -1,6 +1,7 @@
 //import Sequelize constructor
 const Sequelize = require('sequelize');
 
+//require .env file to log in to database
 require('dotenv').config();
 
 //connection to database

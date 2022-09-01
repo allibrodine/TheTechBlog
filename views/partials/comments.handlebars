@@ -2,12 +2,12 @@
     <!--access comments array with "this"-->
     {{#each this}}
     <section class="comment">
-        <div class="meta">
-                                <!--helper for date formatting-->
-            {{user.username}} on {{format_date createdAt}}
-        </div>
         <div class="comment-text">
             {{comment_text}}
+        </div>
+        <div class="meta">
+                                <!--helper for date formatting-->
+            Posted by {{user.username}} on {{format_date createdAt}}
         </div>
     </section>
     {{/each}}

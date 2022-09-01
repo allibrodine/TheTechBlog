@@ -52,6 +52,7 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
     .then(dbUserData => {
+        //save user info
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
@@ -77,7 +78,7 @@ router.post('/login', (req, res) => {
           res.status(400).json({ message: 'No user with that e-mail address!' });
           return;
         }
-    
+        //validate password
         const validPassword = dbUserData.checkPassword(req.body.password);
 
         if (!validPassword) {

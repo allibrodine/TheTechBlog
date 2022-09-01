@@ -1,8 +1,8 @@
 <!--section to create a new post-->
-<section>
+<section class="new-post">
     <h2>Create New Blog Post</h2>
 
-    <form class="new-post">
+    <form class="new-post-form">
         <div>
             <input type="text" id="post-title" name="post-title" placeholder="Title" />
         </div>
@@ -19,18 +19,31 @@
 {{#if posts.length}}
 <section>
     <h2>Your Posts</h2>
-    <ol>
+    <ul>
         {{#each posts as |post|}}
         <li>
-            <!--partial for posts-->
-            {{> post-info post}}
-            <!--option to edit existing post-->
-            <a href="/dashboard/edit/{{post.id}}" class="edit-btn">Edit Post</a>
+            <article>
+                <div class="post">
+                    <div class="title">
+                        <p>
+                            <a href="/post/{{post.id}}">{{post.title}}</a>   
+                            <a href="/dashboard/edit/{{post.id}}" class="edit-btn">Edit Post</a>
+                        </p>
+                        <span>{{post.post_text}}</span>
+                    </div>
+                    <div class="meta">
+                                                    <!--helper for formatting date-->  
+                        Posted by {{post.user.username}} on {{format_date post.createdAt}}
+                        |                             <!--helper to pluralize words-->  
+                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "Comment" comments.length}}</a>
+                    </div>
+                </div>
+            </article>
         </li>
         {{/each}}
-    </ol>
+    </ul>
 </section>
 {{/if}}
 
 <script src="/javascript/add-post.js"></script>
-<script src="/javascript/edit.post"></script>
+
